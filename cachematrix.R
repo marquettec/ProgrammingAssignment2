@@ -6,7 +6,17 @@
 ## Returned list provides function allowing to set/get both matrices
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  i <- NULL
+  set <- function(y) {
+    x <<- y
+    i <<- NULL
+  }
+  get <- function() x
+  setinverse <- function(inverseMatrix) i <<- inverseMatrix
+  getinverse <- function() i
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)  
 }
 
 
